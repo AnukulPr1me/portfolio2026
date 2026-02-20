@@ -3,26 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio — Game & Web Dev</title>
+  <title>Anukul — Game & Web Dev</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-  <!-- Custom cursor -->
   <div id="cursor"></div>
   <div id="cursor-ring"></div>
-
-  <!-- Background orbs -->
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">&lt;Anukul /&gt;</div>
+    <a href="#hero" class="nav-logo">&lt;Anukul /&gt;</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#showcase-preview">Showcase</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button id="theme-toggle" aria-label="Toggle dark/light mode">
@@ -31,8 +29,10 @@
     </button>
   </nav>
 
-  <!-- HERO -->
-  <section id="hero">
+  <!-- ═══════════════════════════════════════════════════════
+       HERO — full screen
+  ════════════════════════════════════════════════════════ -->
+  <section id="hero" class="fullscreen">
     <div class="hero-inner">
       <div class="hero-tag reveal">Available for Work</div>
       <h1 class="reveal">
@@ -52,13 +52,13 @@
         <span class="badge">Unity</span>
         <span class="badge">Unreal</span>
         <span class="badge">HTML</span>
-        <span class="badge">css</span>
+        <span class="badge">CSS</span>
         <span class="badge">JavaScript</span>
         <span class="badge">React</span>
         <span class="badge">Express.js</span>
         <span class="badge">Node.js</span>
         <span class="badge">Three.js</span>
-        <span class="badge">Tailwind css</span>
+        <span class="badge">Tailwind CSS</span>
         <span class="badge">C#</span>
         <span class="badge">C++</span>
         <span class="badge">PostgreSQL</span>
@@ -66,205 +66,225 @@
         <span class="badge">Docker</span>
       </div>
     </div>
+
+    <!-- 3D Model Viewer -->
+    <div id="hero-3d">
+      <canvas id="three-canvas"></canvas>
+      <div id="model-hint">drag to rotate · scroll to zoom</div>
+      <div id="model-loading">
+        <div class="loading-bar-bg"><div class="loading-bar-fill" id="loading-fill"></div></div>
+        <div class="loading-text" id="loading-text">Loading model...</div>
+      </div>
+    </div>
   </section>
 
-  <hr class="section-divider">
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-label reveal">About Me</div>
-    <h2 class="reveal">Coding at the<br>intersection of art &amp; tech</h2>
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <p>I'm a developer passionate about <strong>building things that people experience</strong> — whether that's a polished game mechanic that feels just right, or a web app that's both performant and beautiful.</p>
-        <p>My background spans <strong>game development</strong> with engines like Unity and Godot, and <strong>full-stack web development</strong> with modern JavaScript frameworks and backend systems.</p>
-        <p>I love pushing boundaries: browser-based 3D with WebGL, procedural generation, real-time systems, and UI that surprises and delights.</p>
-      </div>
-      <div class="skills-grid reveal">
-        <div class="skill-item">
-          <div class="skill-name">Unity / C#</div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="92"></div></div>
-          <div class="skill-level">Expert</div>
+  <!-- ═══════════════════════════════════════════════════════
+       ABOUT — full screen
+  ════════════════════════════════════════════════════════ -->
+  <section id="about" class="fullscreen">
+    <div class="section-inner">
+      <div class="section-label reveal">About Me</div>
+      <h2 class="reveal">I don't stick to<br>one medium.</h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>I create things — whether that's a <strong>world you can play in</strong>, a site you can explore, a character you can feel, or a model you can hold in 3D space.</p>
+          <p>I work across <strong>drawing, 3D modelling, game development, and web development</strong> — whatever it takes to turn an idea into something real and beautiful.</p>
+          <p>I don't think of myself as a developer or an artist. I'm a <strong>maker</strong> — someone who is restless until the thing in my head exists in the world.</p>
         </div>
-        <div class="skill-item">
-          <div class="skill-name">HTML/CSS/JS</div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80"></div></div>
-          <div class="skill-level">Advanced</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name">React / Next.js / Three.js</div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88"></div></div>
-          <div class="skill-level">Expert</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name">Node.js / Express.js</div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div>
-          <div class="skill-level">Advanced</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name">C++</div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="75"></div></div>
-          <div class="skill-level">Intermediate</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name">Blender</div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="78"></div></div>
-          <div class="skill-level">Advanced</div>
+        <div class="skills-grid reveal">
+          <div class="skill-item">
+            <div class="skill-name">Unity / C#</div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="92"></div></div>
+            <div class="skill-level">Expert</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">HTML / CSS / JS</div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80"></div></div>
+            <div class="skill-level">Advanced</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">React / Next.js / Three.js</div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88"></div></div>
+            <div class="skill-level">Expert</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Node.js / Express.js</div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div>
+            <div class="skill-level">Advanced</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">C++</div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="75"></div></div>
+            <div class="skill-level">Intermediate</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Blender</div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="78"></div></div>
+            <div class="skill-level">Advanced</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <hr class="section-divider">
+  <!-- ═══════════════════════════════════════════════════════
+       PROJECTS — full screen (scrollable inside)
+  ════════════════════════════════════════════════════════ -->
+  <section id="projects" class="fullscreen fullscreen-scroll">
+    <div class="section-inner">
+      <div class="section-label reveal">Selected Work</div>
+      <h2 class="reveal">Projects I've<br>shipped &amp; loved</h2>
+      <div class="projects-grid">
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="section-label reveal">Selected Work</div>
-    <h2 class="reveal">Projects I've<br>shipped &amp; loved</h2>
-    <div class="projects-grid">
+        <a href="project.html?id=neon-abyss" class="project-card reveal">
+          <span class="project-type type-game">Game Dev</span>
+          <div class="project-title">Neon Abyss Prototype</div>
+          <p class="project-desc">A procedurally generated roguelite with physics-based combat and dynamic lighting. Built in Unity with custom shader graph effects.</p>
+          <div class="project-stack">
+            <span class="stack-tag">Unity</span><span class="stack-tag">C#</span>
+            <span class="stack-tag">HLSL</span><span class="stack-tag">Cinemachine</span>
+          </div>
+          <div class="project-card-footer">View Case Study →</div>
+        </a>
 
-      <div class="project-card reveal">
-        <span class="project-type type-game">Game Dev</span>
-        <div class="project-title">Neon Abyss Prototype</div>
-        <p class="project-desc">A procedurally generated roguelite with physics-based combat and dynamic lighting. Built in Unity with custom shader graph effects.</p>
-        <div class="project-stack">
-          <span class="stack-tag">Unity</span><span class="stack-tag">C#</span>
-          <span class="stack-tag">HLSL</span><span class="stack-tag">Cinemachine</span>
-        </div>
-        <div class="project-links">
-          <a href="#" class="project-link">Play Demo</a>
-          <a href="#" class="project-link">GitHub</a>
-        </div>
+        <a href="project.html?id=devdash" class="project-card reveal">
+          <span class="project-type type-web">Web Dev</span>
+          <div class="project-title">DevDash — Dev Productivity App</div>
+          <p class="project-desc">A full-stack productivity dashboard for developers: task tracking, GitHub integration, Pomodoro timer, and analytics.</p>
+          <div class="project-stack">
+            <span class="stack-tag">React</span><span class="stack-tag">Node.js</span>
+            <span class="stack-tag">PostgreSQL</span><span class="stack-tag">GitHub API</span>
+          </div>
+          <div class="project-card-footer">View Case Study →</div>
+        </a>
+
+        <a href="project.html?id=pixel-farm" class="project-card reveal">
+          <span class="project-type type-game">Game Dev</span>
+          <div class="project-title">Pixel Farm — Godot Sim</div>
+          <p class="project-desc">A cozy farming sim built in Godot 4 with a custom tile system, day/night cycles, NPC schedules, and local co-op.</p>
+          <div class="project-stack">
+            <span class="stack-tag">Godot 4</span><span class="stack-tag">GDScript</span>
+            <span class="stack-tag">SQLite</span>
+          </div>
+          <div class="project-card-footer">View Case Study →</div>
+        </a>
+
+        <a href="project.html?id=portfolio-3d" class="project-card reveal">
+          <span class="project-type type-web">Web Dev</span>
+          <div class="project-title">3D Portfolio Viewer</div>
+          <p class="project-desc">An interactive Three.js portfolio gallery with GSAP scroll animations, 3D model loading, and a WebGL post-processing pipeline.</p>
+          <div class="project-stack">
+            <span class="stack-tag">Three.js</span><span class="stack-tag">GSAP</span>
+            <span class="stack-tag">WebGL</span><span class="stack-tag">Blender</span>
+          </div>
+          <div class="project-card-footer">View Case Study →</div>
+        </a>
+
+        <a href="project.html?id=levelforge" class="project-card reveal">
+          <span class="project-type type-tool">Tool</span>
+          <div class="project-title">LevelForge — Map Editor</div>
+          <p class="project-desc">A browser-based tile map editor for 2D games: multi-layer editing, auto-tiling, export to JSON/XML, and real-time preview.</p>
+          <div class="project-stack">
+            <span class="stack-tag">Vanilla JS</span><span class="stack-tag">Canvas API</span>
+            <span class="stack-tag">IndexedDB</span>
+          </div>
+          <div class="project-card-footer">View Case Study →</div>
+        </a>
+
+        <a href="project.html?id=gameapi" class="project-card reveal">
+          <span class="project-type type-web">Web Dev</span>
+          <div class="project-title">GameAPI Backend</div>
+          <p class="project-desc">A RESTful + WebSocket backend for multiplayer game services: auth, matchmaking, leaderboards, and real-time state sync.</p>
+          <div class="project-stack">
+            <span class="stack-tag">Node.js</span><span class="stack-tag">Socket.io</span>
+            <span class="stack-tag">Redis</span><span class="stack-tag">Docker</span>
+          </div>
+          <div class="project-card-footer">View Case Study →</div>
+        </a>
+
       </div>
-
-      <div class="project-card reveal">
-        <span class="project-type type-web">Web Dev</span>
-        <div class="project-title">DevDash — Dev Productivity App</div>
-        <p class="project-desc">A full-stack productivity dashboard for developers: task tracking, GitHub integration, Pomodoro timer, and analytics.</p>
-        <div class="project-stack">
-          <span class="stack-tag">React</span><span class="stack-tag">Node.js</span>
-          <span class="stack-tag">PostgreSQL</span><span class="stack-tag">GitHub API</span>
-        </div>
-        <div class="project-links">
-          <a href="#" class="project-link">Live Site</a>
-          <a href="#" class="project-link">GitHub</a>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <span class="project-type type-game">Game Dev</span>
-        <div class="project-title">Pixel Farm — Godot Sim</div>
-        <p class="project-desc">A cozy farming sim built in Godot 4 with a custom tile system, day/night cycles, NPC schedules, and local co-op.</p>
-        <div class="project-stack">
-          <span class="stack-tag">Godot 4</span><span class="stack-tag">GDScript</span>
-          <span class="stack-tag">SQLite</span>
-        </div>
-        <div class="project-links">
-          <a href="#" class="project-link">Play Demo</a>
-          <a href="#" class="project-link">GitHub</a>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <span class="project-type type-web">Web Dev</span>
-        <div class="project-title">3D Portfolio Viewer</div>
-        <p class="project-desc">An interactive Three.js portfolio gallery with GSAP scroll animations, 3D model loading, and a WebGL post-processing pipeline.</p>
-        <div class="project-stack">
-          <span class="stack-tag">Three.js</span><span class="stack-tag">GSAP</span>
-          <span class="stack-tag">WebGL</span><span class="stack-tag">Blender</span>
-        </div>
-        <div class="project-links">
-          <a href="#" class="project-link">Live Site</a>
-          <a href="#" class="project-link">GitHub</a>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <span class="project-type type-tool">Tool</span>
-        <div class="project-title">LevelForge — Map Editor</div>
-        <p class="project-desc">A browser-based tile map editor for 2D games: multi-layer editing, auto-tiling, export to JSON/XML, and real-time preview.</p>
-        <div class="project-stack">
-          <span class="stack-tag">Vanilla JS</span><span class="stack-tag">Canvas API</span>
-          <span class="stack-tag">IndexedDB</span>
-        </div>
-        <div class="project-links">
-          <a href="#" class="project-link">Try It</a>
-          <a href="#" class="project-link">GitHub</a>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <span class="project-type type-web">Web Dev</span>
-        <div class="project-title">GameAPI Backend</div>
-        <p class="project-desc">A RESTful + WebSocket backend for multiplayer game services: auth, matchmaking, leaderboards, and real-time state sync.</p>
-        <div class="project-stack">
-          <span class="stack-tag">Node.js</span><span class="stack-tag">Socket.io</span>
-          <span class="stack-tag">Redis</span><span class="stack-tag">Docker</span>
-        </div>
-        <div class="project-links">
-          <a href="#" class="project-link">Docs</a>
-          <a href="#" class="project-link">GitHub</a>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <hr class="section-divider">
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-label reveal">Contact</div>
-    <h2 class="reveal">Let's build<br>something together</h2>
-    <div class="contact-wrap">
-      <div class="contact-info reveal">
-        <p>Whether you have a game idea, a web project, or just want to talk tech — my inbox is open. I'm currently available for freelance work and collaborations.</p>
-        <div class="contact-social">
-          <a href="#" class="social-link">GitHub</a>
-          <a href="#" class="social-link">LinkedIn</a>
-          <a href="#" class="social-link">Twitter / X</a>
-          <a href="#" class="social-link">itch.io</a>
-        </div>
+  <!-- ═══════════════════════════════════════════════════════
+       SHOWCASE PREVIEW — full screen
+  ════════════════════════════════════════════════════════ -->
+  <section id="showcase-preview" class="fullscreen fullscreen-scroll">
+    <div class="section-inner">
+      <div class="section-label reveal">Creative Work</div>
+      <h2 class="reveal">Art, Models<br>&amp; Everything Else</h2>
+      <p class="showcase-subtitle reveal">Drawings, 3D renders, game screenshots, experiments — a peek into the creative side.</p>
+      <div class="showcase-peek-wrap reveal">
+        <div class="showcase-peek-grid" id="showcasePeekGrid"></div>
+        <div class="showcase-peek-fade"></div>
       </div>
+      <div class="showcase-explore-wrap reveal">
+        <a href="showcase.html" class="btn btn-primary showcase-explore-btn">Explore Full Showcase →</a>
+      </div>
+    </div>
+  </section>
 
-      <div class="reveal">
-        <form id="contactForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required/>
+  <!-- ═══════════════════════════════════════════════════════
+       CONTACT — full screen
+  ════════════════════════════════════════════════════════ -->
+  <section id="contact" class="fullscreen">
+    <div class="section-inner">
+      <div class="section-label reveal">Contact</div>
+      <h2 class="reveal">Let's build<br>something together</h2>
+      <div class="contact-wrap">
+        <div class="contact-info reveal">
+          <p>Whether you have a game idea, a web project, or just want to talk tech — my inbox is open. I'm currently available for freelance work and collaborations.</p>
+          <div class="contact-social">
+            <a href="#" class="social-link">GitHub</a>
+            <a href="#" class="social-link">LinkedIn</a>
+            <a href="#" class="social-link">Twitter / X</a>
+            <a href="#" class="social-link">itch.io</a>
+          </div>
+        </div>
+        <div class="reveal">
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required/>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@email.com" required/>
+              </div>
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="you@email.com" required/>
+              <label for="subject">Project Type</label>
+              <select id="subject" name="subject">
+                <option value="">Select a category</option>
+                <option value="game">Game Development</option>
+                <option value="web">Web Development</option>
+                <option value="collab">Collaboration</option>
+                <option value="other">Other</option>
+              </select>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="subject">Project Type</label>
-            <select id="subject" name="subject">
-              <option value="">Select a category</option>
-              <option value="game">Game Development</option>
-              <option value="web">Web Development</option>
-              <option value="collab">Collaboration</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
-          </div>
-          <div id="form-status"></div>
-          <button type="submit" class="btn-submit" id="submitBtn">Send Message</button>
-        </form>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <div id="form-status"></div>
+            <button type="submit" class="btn-submit" id="submitBtn">Send Message</button>
+          </form>
+        </div>
       </div>
     </div>
   </section>
 
   <footer>
     <span>© 2026 Anukul. All rights reserved.</span>
-    <span>Built with HTML · CSS · JS and Backend useing Express</span>
+    <span>Built with HTML · CSS · JS and Backend using Express</span>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="model3d.js"></script>
+  <script src="showcase-data.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

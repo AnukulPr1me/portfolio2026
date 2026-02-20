@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── Project Page Specific Styles ── */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Syne Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      margin-bottom: 3rem;
+      transition: color 0.25s;
+      cursor: pointer !important;
+    }
+    .back-btn:hover { color: var(--accent); }
+    .back-btn::before { content: '←'; font-size: 1rem; }
+
+    .project-hero {
+      padding: 8rem 4rem 3rem;
+      position: relative;
+      z-index: 1;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .project-hero-type {
+      font-family: 'Syne Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 99px;
+      border: 1px solid;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-hero h1 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      margin-bottom: 1.2rem;
+    }
+
+    .project-hero-desc {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 600px;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    .project-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+    .project-meta-label {
+      font-family: 'Syne Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .project-meta-value {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .project-action-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+    }
+
+    /* ── Content Sections ── */
+    .project-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 4rem 6rem;
+    }
+
+    .content-block {
+      margin-bottom: 4rem;
+    }
+    .content-block h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .content-block p {
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 1.02rem;
+      margin-bottom: 1rem;
+    }
+    .content-block p strong { color: var(--text); font-weight: 400; }
+
+    /* ── Feature List ── */
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .feature-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+      transition: border-color 0.25s;
+    }
+    .feature-item:hover { border-color: var(--accent); }
+    .feature-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+    }
+    .feature-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+    .feature-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── Tech Stack Full ── */
+    .tech-stack-full {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.2rem;
+    }
+    .tech-pill {
+      font-family: 'Syne Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      padding: 0.5rem 1.1rem;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: var(--surface);
+      transition: all 0.25s;
+    }
+    .tech-pill:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── Challenge / Solution ── */
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .challenge-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .challenge-card.solution { border-color: rgba(245,166,35,0.2); }
+    .challenge-card-label {
+      font-family: 'Syne Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+    .challenge-card.solution .challenge-card-label { color: var(--accent); }
+    .challenge-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+
+    /* ── Outcome Stats ── */
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .stat-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem 2rem;
+      flex: 1;
+      min-width: 140px;
+      text-align: center;
+      transition: border-color 0.25s;
+    }
+    .stat-box:hover { border-color: var(--accent); }
+    .stat-number {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 2.2rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-label {
+      font-family: 'Syne Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── Not Found ── */
+    .not-found {
+      text-align: center;
+      padding: 10rem 2rem;
+    }
+    .not-found h1 { font-size: 4rem; margin-bottom: 1rem; }
+    .not-found p { color: var(--muted); margin-bottom: 2rem; }
+
+    /* responsive */
+    @media (max-width: 768px) {
+      .project-hero { padding: 7rem 1.5rem 2rem; }
+      .project-content { padding: 0 1.5rem 4rem; }
+      .challenge-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">&lt;Anukul /&gt;</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <button id="theme-toggle" aria-label="Toggle dark/light mode">
+      <span class="toggle-icon moon">🌙</span>
+      <span class="toggle-icon sun">☀️</span>
+    </button>
+  </nav>
+
+  <!-- PROJECT CONTENT — injected by project.js -->
+  <div id="project-root"></div>
+
+  <footer>
+    <span>© 2026 Anukul. All rights reserved.</span>
+    <span>Built with HTML · CSS · JS and Backend using Express</span>
+  </footer>
+
+  <script src="project.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
