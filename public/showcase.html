@@ -262,11 +262,24 @@
       <li><a href="showcase.html" style="color:var(--accent)">Showcase</a></li>
       <li><a href="index.html#contact">Contact</a></li>
     </ul>
-    <button id="theme-toggle" aria-label="Toggle dark/light mode">
-      <span class="toggle-icon moon">🌙</span>
-      <span class="toggle-icon sun">☀️</span>
-    </button>
+    <div class="nav-right">
+      <button id="theme-toggle" aria-label="Toggle dark/light mode">
+        <span class="toggle-icon moon">🌙</span>
+        <span class="toggle-icon sun">☀️</span>
+      </button>
+      <button id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu">
+    <a href="index.html#about"    class="mobile-link">About</a>
+    <a href="index.html#projects" class="mobile-link">Projects</a>
+    <a href="showcase.html"       class="mobile-link" style="color:var(--accent)">Showcase</a>
+    <a href="index.html#contact"  class="mobile-link">Contact</a>
+  </div>
 
   <!-- PAGE HEADER -->
   <div class="showcase-header">

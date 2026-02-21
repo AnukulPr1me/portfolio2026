@@ -146,4 +146,39 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
+// ── Hamburger Menu ────────────────────────────────────────
+const hamburger  = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+if (hamburger && mobileMenu) {
+
+  function openMenu() {
+    hamburger.classList.add('open');
+    mobileMenu.classList.add('open');
+    document.body.style.overflow = 'hidden'; // prevent scroll behind menu
+  }
+
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function toggleMenu() {
+    hamburger.classList.contains('open') ? closeMenu() : openMenu();
+  }
+
+  hamburger.addEventListener('click', toggleMenu);
+
+  // Close when a menu link is clicked
+  mobileMenu.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeMenu();
+  });
+}
+
 }); // end DOMContentLoaded
